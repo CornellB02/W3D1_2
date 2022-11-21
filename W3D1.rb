@@ -49,6 +49,38 @@ class Array
         #self.any? { |ele| prc.call(ele) }
     end
 
+    def my_flatten
+
+        if !self.instance_of? Array
+         return [self]
+        end
+        
+        res = []
+        self.each do |ele|
+            res += flatten(ele)
+       end
+       return res
+    end
+_
+
+
+
+
+# def 
+
+def flatten(data)
+    return [data] if !data.instance_of? Array
+
+    res = []
+    data.each do |ele|
+        res += flatten(ele)
+    end
+
+    return res
+end
+
+
+
 
 
 
